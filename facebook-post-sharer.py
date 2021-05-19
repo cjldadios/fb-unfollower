@@ -20,11 +20,8 @@ print("Logging in...")
 
 
 # Your Facebook credentials
-fb_name = "wrong credentials"
+fb_name = ""
 fb_pass = ""
-
-print("Wrong credentials. Edit the code.")
-exit()
 
 # Fill credentials
 driver.find_element_by_name("email").send_keys(fb_name)
@@ -32,23 +29,23 @@ driver.find_element_by_name("pass").send_keys(fb_pass)
 # Click Log In
 driver.find_element_by_name('login').click();
 
-print("Loading post...5 sec...")
+print("Loading Facebook post...5 sec...")
 sleep(5)
 # Go to page
 #driver.get('https://www.facebook.com/ISACC.org')
 driver.get('https://www.facebook.com/ISACC.org/photos/a.413075825329/10159332647675330/')
 
 # Loading post...
-print("Loading post...3 sec...")
-sleep(3)
+print("Loading post buttons...5 sec...")
+sleep(5)
 
 # Click choose how to interact
 print("Clicking choose how to interact...")
 driver.find_element_by_xpath("//button[@aria-label='Voice Selector']").click()
 
 # Interact as user
-print("Selecting how to interact...3 sec...")
-sleep(3)
+print("Selecting how to interact...5 sec...")
+sleep(5)
 # Select how to interact
 actions = ActionChains(driver) 
 actions.send_keys(Keys.TAB)
@@ -76,19 +73,34 @@ print("Loading Send in Messenger options...5 sec...")
 sleep(5)
 
 
-print("Clicking send in 5 sec...")
-sleep(5)
-# Click Send
-driver.find_element_by_xpath("//span[text() = 'Send']").click()
-element = driver.find_element_by_xpath("//span[text() = 'Send']").click()
+# Clicking Send
+print("Clicking Send for Messenger every 5 sec...")
+ 
 
 # Do this 3453 (MPM friends count) times plus 20 (recent and groups buffer)
-for i in range(3473):
-    print("Sent: " + i)
-    print("Page reloading...")
+error_count = 0
+sent = 0
+click_limit = 3473
+for i in range(click_limit):
+    print("Clicked: " + str(i))
+    print("Errors: " + str(error_count))
+    print("Sent: " + str(sent))
     sleep(5) # it will load slowly in a while
-    driver.find_element_by_xpath("//span[text() = 'Send']").click()
-
-
-print("Exiting in 10 sec...") # ---------------------------------
+    try:
+        driver.find_element_by_xpath("//span[text() = 'Send']").click()
+        sent += 1
+    except:
+        # Every error, scroll down
+        error_count += 1
+        recentList = driver.find_elements_by_xpath("//div[@data-visualcompletion='ignore-dynamic']") 
+        driver.execute_script("arguments[0].scrollIntoView();", recentList[-1] )
+    finally:
+        # In the case of an infinite loop...
+        # Check if all friends have been sent the post
+        if sent == click_limit:
+            print("All friends were probably sent the post...")
+            break
+    
+    
+print("Exiting...") # ---------------------------------
 exit()
