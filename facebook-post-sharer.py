@@ -1,9 +1,9 @@
-from time import sleep
+import traceback
 
+from time import sleep
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
-
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -20,8 +20,8 @@ print("Logging in...")
 
 
 # Your Facebook credentials
-fb_name = ""
-fb_pass = ""
+fb_name = "melbamaggay"
+fb_pass = "Isacc2020"
 
 # Fill credentials
 driver.find_element_by_name("email").send_keys(fb_name)
@@ -93,7 +93,8 @@ for i in range(click_limit):
         # Every error, scroll down
         error_count += 1
         recentList = driver.find_elements_by_xpath("//div[@data-visualcompletion='ignore-dynamic']") 
-        driver.execute_script("arguments[0].scrollIntoView();", recentList[-1] )
+        driver.execute_script("arguments[0].scrollIntoView();", recentList[-1] )# go to last element 
+        driver.execute_script("arguments[0].scrollIntoView();", recentList[0] ) # then scoll back up to the first element
     finally:
         # In the case of an infinite loop...
         # Check if all friends have been sent the post
