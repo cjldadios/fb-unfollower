@@ -20,8 +20,8 @@ print("Logging in...")
 
 
 # Your Facebook credentials
-fb_name = "melbamaggay"
-fb_pass = "Isacc2020"
+fb_name = ""
+fb_pass = ""
 
 # Fill credentials
 driver.find_element_by_name("email").send_keys(fb_name)
