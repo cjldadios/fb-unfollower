@@ -1,0 +1,15 @@
+[DEFAULT]
+
+repeat = 100
+
+link = https://www.facebook.com/
+inactivity_timeout = 300
+waiting time per action = 2
+driver = drivers/chromedriver_win32/chromedriver.exe
+
+[SCRATCH]
+
+scratchlink1 = https://www.facebook.com/
+scratchlink2 = https://www.facebook.com/Formula1/photos/a.570461836444136/2349544205202548/
+scratchlink3 = and so on...
+scratchlink4 = and so forth.

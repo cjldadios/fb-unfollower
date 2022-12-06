@@ -1,0 +1,5 @@
+Log in within 2 minutes.
+
+In the resources folder, edit settings.txt. Modify the 'repeat' variable to set how many times you want to unfollow posts.
+
+Delete the log file if it's too big.
