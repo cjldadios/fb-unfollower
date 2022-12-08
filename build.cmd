@@ -1,0 +1,1 @@
+pyinstaller --onefile --icon=./resources/icon.ico main.py --distpath .  --name fb-auto 

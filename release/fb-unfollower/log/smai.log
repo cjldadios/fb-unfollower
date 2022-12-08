@@ -1,0 +1,81 @@
+2022/12/04 10:44:32 PM - __main__ (line: 103) - INFO: ==============================================================================
+2022/12/04 10:44:32 PM - __main__ (line: 104) - INFO: Facebook Unfollower
+2022/12/04 10:44:32 PM - __main__ (line: 105) - INFO: Program running...
+2022/12/04 10:44:32 PM - __main__ (line: 120) - INFO: Instanciating driver...
+2022/12/04 10:44:32 PM - __main__ (line: 121) - INFO: from C:\Users\daves\Documents\GitHub\fb-unfollower\release\fb-unfollower/drivers/chromedriver_win32/chromedriver.exe
+2022/12/04 10:44:32 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "platformName": "any", "goog:chromeOptions": {"excludeSwitches": ["enable-logging"], "extensions": [], "args": ["--disable-notifications"]}}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "goog:chromeOptions": {"excludeSwitches": ["enable-logging"], "extensions": [], "args": ["--disable-notifications"]}}}
+2022/12/04 10:44:32 PM - urllib3.connectionpool (line: 227) - DEBUG: Starting new HTTP connection (1): 127.0.0.1:58406
+2022/12/04 10:44:33 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session HTTP/1.1" 200 789
+2022/12/04 10:44:33 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:33 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/url {"url": "https://www.facebook.com/"}
+2022/12/04 10:44:36 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/url HTTP/1.1" 200 14
+2022/12/04 10:44:36 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:36 PM - __main__ (line: 129) - INFO: Waiting to login...
+2022/12/04 10:44:36 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:36 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:36 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:37 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:37 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:37 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:38 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:38 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:38 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:39 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:39 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:39 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:40 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:40 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:40 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:41 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:41 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:41 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:42 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:42 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:42 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:43 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:47 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:47 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:48 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:48 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:48 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:49 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:49 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:49 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:50 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:50 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:50 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:51 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:51 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:51 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:52 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:52 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:52 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:53 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:53 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:53 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:54 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:54 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:54 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:55 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:55 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:55 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:56 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:44:56 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1024
+2022/12/04 10:44:56 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:44:57 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//a[@aria-label='Home']"}
+2022/12/04 10:45:04 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 200 88
+2022/12/04 10:45:04 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:45:04 PM - __main__ (line: 175) - INFO: 
+Login success...
+2022/12/04 10:45:04 PM - __main__ (line: 179) - INFO: Initiating automation...
+2022/12/04 10:45:04 PM - __main__ (line: 182) - INFO: [1/100]
+2022/12/04 10:45:06 PM - __main__ (line: 74) - INFO: Click by xpath: //div[@aria-label='Actions for this post']
+2022/12/04 10:45:06 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: POST http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/element {"using": "xpath", "value": "//div[@aria-label='Actions for this post']"}
+2022/12/04 10:45:06 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "POST /session/f2c128a2d552dcc0216ef1452b81367b/element HTTP/1.1" 404 1043
+2022/12/04 10:45:06 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:45:06 PM - __main__ (line: 85) - WARNING: No more posts to unfollow...
+2022/12/04 10:45:06 PM - selenium.webdriver.remote.remote_connection (line: 388) - DEBUG: DELETE http://127.0.0.1:58406/session/f2c128a2d552dcc0216ef1452b81367b/window {}
+2022/12/04 10:45:06 PM - urllib3.connectionpool (line: 452) - DEBUG: http://127.0.0.1:58406 "DELETE /session/f2c128a2d552dcc0216ef1452b81367b/window HTTP/1.1" 200 12
+2022/12/04 10:45:06 PM - selenium.webdriver.remote.remote_connection (line: 440) - DEBUG: Finished Request
+2022/12/04 10:45:06 PM - __main__ (line: 241) - INFO: Browser closed...
+2022/12/04 10:45:06 PM - __main__ (line: 246) - INFO: Program terminated...
