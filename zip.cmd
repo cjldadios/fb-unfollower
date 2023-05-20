@@ -1,0 +1,1 @@
+7z   a   "release.zip" "drivers/*" "resources/*" "fb-auto.exe" "instructions.txt" "README.md"

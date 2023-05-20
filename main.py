@@ -68,6 +68,17 @@ def delay(sec):
 
 waiting_per_action = int(config['DEFAULT']['waiting time per action'])
 
+post_actions_file_dir = config['DEFAULT']['actions']
+
+
+# Using readlines()
+post_actions_file = open(post_actions_file_dir, 'r')
+post_actions_list_untrimmed = post_actions_file.readlines()
+post_actions_file.close()
+post_actions_list = []
+for action_line in post_actions_list_untrimmed:
+    post_actions_list.append(action_line.strip())
+
 def clickByXPath(xpath):
     delay(waiting_per_action)
 
@@ -82,9 +93,20 @@ def clickByXPath(xpath):
             # delay(1)
     except NoSuchElementException:
         # print("No name search field found...", end="", flush=True)
-        logger.warning("No more posts to unfollow...")
-        quit()
+        #logger.warning("No more posts to unfollow...")
+        #sys.exit()
+        # Try to try again but scroll down first.
         # time.sleep(1)
+        # Google "facebook keyboard shortcuts next post"
+        #logger.info("remove: trying to find element");
+        #element = browser.find_element_by_xpath(xpath)
+        #browser.execute_script("arguments[0].scrollIntoView();",element)
+        #time.sleep(20)
+        
+        # Try the alternative. Try again.
+        #logger.warning("Post Action Menu not found on the page...")
+        logger.warning("Post Action Menu Option not found...")
+        
     except NoSuchWindowException:
         logger.warning("Browser window closed unexpectedly...")
     except WebDriverException:
@@ -159,7 +181,7 @@ try:
             break
         except WebDriverException:
             logger.warning("Browser window unreachable...")
-            # traceback.print_exc()
+            logger.warning(traceback.print_exc())
             break
         except:
             logger.exception("Something went wrong during login...")
@@ -176,27 +198,55 @@ try:
 
         begin_unfollow = True
         if begin_unfollow:
+            logger.info("\nClear any Facebook popups...")
+            delay(5)
+        
             logger.info("Initiating automation...")
             
+            # For finding Post Action Menu
+            scroll_height = 500
+            scroll_increment = 300
+            
+            print(post_actions_list)
+            
             for index in range(repeat_unfollow_count):
-                logger.info("[{}/{}]".format(index+1, repeat_unfollow_count))
+                logger.info("Retrying... [{}/{}]".format(index+1, repeat_unfollow_count))
 
                 if clickByXPath("//div[@aria-label='Actions for this post']"): # Action menu
-                    if clickByXPath("//span[contains(text(),'Unfollow ')]"): # Unfollow
-                        continue
-                    if clickByXPath("//span[text()='Hide ad']"): # Hide ad
-                        clickByXPath("//span[text()='Irrelevant']")
-                        clickByXPath("//span[text()='Done']")
-                        continue
-                    if clickByXPath("//span[text()='Hide post']"): # Hide post
-                        continue
                     if clickByXPath("//a[@aria-label='hide post']"): # X button because no option in action menu
-                        continue
-                    if clickByXPath("//span[text()='Reload page']"):
                         continue
                     if clickByXPath("//span[text()='Close']"):
                         browser.refresh()
                         continue
+                    for action_line in post_actions_list:
+                        action_list = action_line.split(" > ")
+                        for action in action_list:
+                            clickByXPath("//span[contains(text(),'{}')]".format(action))
+                        continue
+                
+                    #if clickByXPath("//span[contains(text(),'Unfollow ')]"): # Unfollow
+                    #    continue
+                    #if clickByXPath("//span[text()='Hide ad']"): # Hide ad
+                    #    clickByXPath("//span[text()='Irrelevant']")
+                    #    clickByXPath("//span[text()='Done']")
+                    #    continue
+                    #if clickByXPath("//span[text()='Hide post']"): # Hide post
+                    #    continue
+                    #if clickByXPath("//a[@aria-label='hide post']"): # X button because no option in action menu
+                    #    continue
+                    #if clickByXPath("//span[text()='Hide People You May Know']"):
+                    #    continue
+                    #if clickByXPath("//span[text()='Reload page']"):
+                    #    continue
+                    #if clickByXPath("//span[text()='Close']"):
+                    #    browser.refresh()
+                    #    continue
+                else:
+                    logger.info("Scrolling down to find the Post Action Menu")
+                    #element = browser.find_element_by_xpath("//div[@aria-label='Actions for this post']")
+                    #browser.execute_script("arguments[0].scrollIntoView();", element)
+                    jump_size = str(scroll_height ++ scroll_increment)
+                    #browser.execute_script("window.scrollBy(0,{})".format(jump_size),"")
         else:
             logger.warning("Aborting automation...")
     else:

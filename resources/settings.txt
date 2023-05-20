@@ -6,6 +6,7 @@ link = https://www.facebook.com/
 inactivity_timeout = 300
 waiting time per action = 2
 driver = drivers/chromedriver_win32/chromedriver.exe
+actions = resources/post-actions.txt
 
 [SCRATCH]
 
