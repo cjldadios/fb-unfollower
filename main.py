@@ -28,6 +28,16 @@ from selenium.common.exceptions import WebDriverException
 from selenium.common.exceptions import SessionNotCreatedException
 
 
+
+#from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import ElementClickInterceptedException
+from selenium.webdriver.chrome.options import Options
+from time import sleep
+
+
 ''' CONSTANTS '''
 CURRENT_PATH = os.path.abspath(".")
 configuration_file_directory = CURRENT_PATH + "/resources/" + "settings.txt"
@@ -109,8 +119,13 @@ def clickByXPath(xpath):
         
     except NoSuchWindowException:
         logger.warning("Browser window closed unexpectedly...")
-    except WebDriverException:
+    except WebDriverException as e:
         logger.warning("Browser window unreachable...")
+        logger.error('Failed to do something: ' + str(e))
+        
+        wait = WebDriverWait(driver, 20)
+        showmore_link = wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
+        showmore_link.click()
     except:
         logger.exception("Something went wrong...")
 
@@ -179,9 +194,10 @@ try:
             logger.warning("Browser window closed unexpectedly...")
             # traceback.print_exc()
             break
-        except WebDriverException:
+        except WebDriverException as e:
             logger.warning("Browser window unreachable...")
             logger.warning(traceback.print_exc())
+            logger.error('Failed to do something: ' + str(e))
             break
         except:
             logger.exception("Something went wrong during login...")
@@ -213,39 +229,52 @@ try:
                 logger.info("Retrying... [{}/{}]".format(index+1, repeat_unfollow_count))
 
                 if clickByXPath("//div[@aria-label='Actions for this post']"): # Action menu
-                    if clickByXPath("//a[@aria-label='hide post']"): # X button because no option in action menu
-                        continue
-                    if clickByXPath("//span[text()='Close']"):
-                        browser.refresh()
-                        continue
-                    for action_line in post_actions_list:
-                        action_list = action_line.split(" > ")
-                        for action in action_list:
-                            clickByXPath("//span[contains(text(),'{}')]".format(action))
-                        continue
+                    
+                    element = browser.find_element_by_xpath("//div[@aria-label='Actions for this post']")
+                    element.send_keys(Keys.ARROW_UP) # Arrow up to show the hidden actions
                 
-                    #if clickByXPath("//span[contains(text(),'Unfollow ')]"): # Unfollow
-                    #    continue
-                    #if clickByXPath("//span[text()='Hide ad']"): # Hide ad
-                    #    clickByXPath("//span[text()='Irrelevant']")
-                    #    clickByXPath("//span[text()='Done']")
-                    #    continue
-                    #if clickByXPath("//span[text()='Hide post']"): # Hide post
-                    #    continue
-                    #if clickByXPath("//a[@aria-label='hide post']"): # X button because no option in action menu
-                    #    continue
-                    #if clickByXPath("//span[text()='Hide People You May Know']"):
-                    #    continue
-                    #if clickByXPath("//span[text()='Reload page']"):
-                    #    continue
-                    #if clickByXPath("//span[text()='Close']"):
-                    #    browser.refresh()
-                    #    continue
+                    #isActionSuccess = False
+                    #for action_line in post_actions_list:
+                    #    action_list = action_line.split(" > ")
+                    #    for action in action_list:
+                    #        isActionSuccess = clickByXPath("//span[contains(text(),'{}')]".format(action))
+                    #    if isActionSuccess:
+                    #        break
+                    #    
+                    #if not isActionSuccess:
+                    #    if clickByXPath("//a[@aria-label='hide post']"): # X button because no option in action #menu
+                    #        continue
+                    #    if clickByXPath("//span[text()='Close']"):
+                    #        browser.refresh()
+                    #        continue
+                
+                    ### It's a different code for Unfollow
+                    if clickByXPath("//span[text()='Hide People You May Know']"): # Hide Friend Suggestions
+                       continue
+                    if clickByXPath("//span[contains(text(),'Unfollow ')]"): # Unfollow
+                       continue
+                    if clickByXPath("//span[text()='Hide ad']"): # Hide ad
+                       clickByXPath("//span[text()='Irrelevant']")
+                       clickByXPath("//span[text()='Done']")
+                       continue
+                    if clickByXPath("//span[text()='Hide post']"): # Hide post
+                       continue
+                    if clickByXPath("//a[@aria-label='hide post']"): # X button because no option in action menu
+                       continue
+                    if clickByXPath("//span[text()='Hide People You May Know']"):
+                       continue
+                    if clickByXPath("//span[text()='Reload page']"):
+                       continue
+                    if clickByXPath("//span[text()='Close']"):
+                       browser.refresh()
+                       continue
                 else:
                     logger.info("Scrolling down to find the Post Action Menu")
                     #element = browser.find_element_by_xpath("//div[@aria-label='Actions for this post']")
                     #browser.execute_script("arguments[0].scrollIntoView();", element)
+                    
                     jump_size = str(scroll_height ++ scroll_increment)
+                    logger.info("jump_size: " + jump_size)
                     #browser.execute_script("window.scrollBy(0,{})".format(jump_size),"")
         else:
             logger.warning("Aborting automation...")
